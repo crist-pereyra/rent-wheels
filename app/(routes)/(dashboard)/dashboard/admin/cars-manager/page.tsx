@@ -1,15 +1,16 @@
+import React from 'react';
+import { ButtonAddCar } from './components/ButtonAddCar';
+import { ListCars } from './components/ListCars';
+import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
-import { ListCars } from './components/ListCars';
 
-const DashboardPage = async () => {
+const CarsManagerPage = async () => {
   const { userId } = auth();
   if (!userId) return redirect('/');
-
   const cars = await db.car.findMany({
     where: {
-      isPublish: true,
+      userId,
     },
     orderBy: {
       createdAt: 'desc',
@@ -18,11 +19,12 @@ const DashboardPage = async () => {
   return (
     <div>
       <div className='flex justify-between'>
-        <h2 className='text-2xl font-bold'>List of Cars</h2>
+        <h2 className='text-2xl font-bold'>Manage your cars</h2>
+        <ButtonAddCar />
       </div>
       <ListCars cars={cars} />
     </div>
   );
 };
 
-export default DashboardPage;
+export default CarsManagerPage;
