@@ -16,6 +16,8 @@ import { CalendarSelector } from './CalendarSelector';
 import { useState } from 'react';
 import { addDays } from 'date-fns';
 import { DateRange } from 'react-day-picker';
+import axios from 'axios';
+import { toast } from '@/components/ui/use-toast';
 
 interface Props {
   car: Car;
@@ -28,7 +30,19 @@ export const ModalAddReservation = ({ car }: Props) => {
     from: new Date(),
     to: addDays(new Date(), 5),
   });
-  const onReserveCar = async (car: Car, dateSelected: DateRange) => {};
+  const onReserveCar = async (car: Car, dateSelected: DateRange) => {
+    const response = await axios.post('/api/checkout', {
+      carId: car.id,
+      priceDay: car.priceDay,
+      startDate: dateSelected.from,
+      endDate: dateSelected.to,
+      carName: car.name,
+    });
+    window.location = response.data.url;
+    toast({
+      title: 'Car Reserved 🚗',
+    });
+  };
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
