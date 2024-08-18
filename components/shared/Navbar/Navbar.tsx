@@ -12,8 +12,8 @@ export const Navbar = () => {
     <nav className='mx-auto max-w-5xl py-5'>
       <div className='justify-between lg:flex'>
         <Link href='/' className='flex items-center justify-center gap-x-2'>
-          <Image src='/logo.svg' alt='Rental Cars' width={50} height={50} />
-          <span className='text-xl font-bold'>Rental Cars</span>
+          <Image src='/logo.svg' alt='Rent Wheels' width={50} height={50} />
+          <span className='text-xl font-bold'>Rent Wheels</span>
         </Link>
         <div className='flex items-center justify-center gap-x-7'>
           <Link href='/cars'>List Cars</Link>

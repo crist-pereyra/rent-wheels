@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Rent Wheels',
   description: 'Rent Wheels. Your car rental. Fast, efficient, and reliable.',
   icons: {
-    icon: '/vercel.svg',
+    icon: '/logo.svg',
   },
 };
 
