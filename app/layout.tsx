@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang='en'>
+      <html lang='en' className='selection:bg-cyan-500 selection:text-white'>
         <body className={outfit.className}>
           <NextTopLoader color='#000' />
           {children}
