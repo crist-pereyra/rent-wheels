@@ -4,10 +4,11 @@ import { ListCars } from './components/ListCars';
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
+import { isAdmin } from '@/lib/isAdmin';
 
 const CarsManagerPage = async () => {
   const { userId } = auth();
-  if (!userId) return redirect('/');
+  if (!userId || !isAdmin(userId)) return redirect('/');
   const cars = await db.car.findMany({
     where: {
       userId,

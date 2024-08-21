@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useLovedCars } from '@/hooks/useLovedCars';
 import { useAuth, UserButton } from '@clerk/nextjs';
 import { Heart, User } from 'lucide-react';
 import Image from 'next/image';
@@ -8,6 +9,7 @@ import Link from 'next/link';
 
 export const Navbar = () => {
   const { userId } = useAuth();
+  const lovedItems = useLovedCars((state) => state.lovedItems);
   return (
     <nav className='mx-auto max-w-5xl py-5'>
       <div className='justify-between lg:flex'>
@@ -21,7 +23,10 @@ export const Navbar = () => {
           {userId ? (
             <>
               <Link href='/loved-cars'>
-                <Heart strokeWidth={1} className='cursor-pointer' />
+                <Heart
+                  strokeWidth={1}
+                  className={`cursor-pointer ${lovedItems.length > 0 && 'fill-black'}`}
+                />
               </Link>
               <UserButton />
             </>

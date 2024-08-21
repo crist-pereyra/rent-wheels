@@ -4,6 +4,7 @@ import { useAuth } from '@clerk/nextjs';
 import { adminSidebarData, generalSidebarData } from './SidebarRoutes.data';
 import { SidebarItem } from './SidebarItem';
 import { Separator } from '@/components/ui/separator';
+import { isAdmin } from '@/lib/isAdmin';
 
 export const SidebarRoutes = () => {
   const { userId } = useAuth();
@@ -19,14 +20,14 @@ export const SidebarRoutes = () => {
 
         <Separator />
 
-        {/* {isAdministrator(userId) && ( */}
-        <div className='p-2 md:p-6'>
-          <p className='mb-2 text-slate-500'>ADMIN</p>
-          {adminSidebarData.map((item) => (
-            <SidebarItem key={item.label} item={item} />
-          ))}
-        </div>
-        {/* )} */}
+        {isAdmin(userId) && (
+          <div className='p-2 md:p-6'>
+            <p className='mb-2 text-slate-500'>ADMIN</p>
+            {adminSidebarData.map((item) => (
+              <SidebarItem key={item.label} item={item} />
+            ))}
+          </div>
+        )}
       </div>
 
       <div>
