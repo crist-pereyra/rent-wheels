@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import { Outfit } from 'next/font/google';
 import './globals.css';
@@ -10,15 +10,18 @@ const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Rent Wheels',
-  description: 'Rent Wheels. Your car rental. Fast, efficient, and reliable.',
+  description:
+    'Welcome to Rent Wheels, your go-to solution for renting cars with ease and efficiency! This platform provides a seamless experience for customers looking to book vehicles, as well as a robust admin dashboard to manage listings.',
   icons: {
     icon: '/logo.svg',
   },
   openGraph: {
-    images: '/images/demo1.png',
+    images: '/demo1.png',
   },
 };
-
+export const viewport: Viewport = {
+  themeColor: '#000',
+};
 export default function RootLayout({
   children,
 }: Readonly<{

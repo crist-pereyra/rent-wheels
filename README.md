@@ -4,7 +4,7 @@
 
 Check out the live version of the project: [rent-wheels](https://rent-wheels-five.vercel.app)
 
-![Rent Wheels Preview](/public/images/demo1.png)
+![Rent Wheels Preview](/public/demo1.png)
 
 ![Rent Wheels Preview](/public/images/demo2.png)
 
@@ -12,10 +12,12 @@ Welcome to **Rent Wheels**, your go-to solution for renting cars with ease and e
 
 ⚡ **Next.js 14** for server-side rendering and static site generation  
 🔒 **Clerk** for authentication and user management  
-📦 **Prisma ORM & Neon** for smooth database management  
+📦 **Prisma ORM & Neon** for smooth database management
+🛠️ **ESLint and Prettier** for code quality and consistency  
 🔧 **React Table** for efficient data tables  
-🖼️ **Uploadthing** for handling image uploads  
-🎨 **Shadcn/ui** for sleek UI components  
+🖼️ **Uploadthing** for handling image uploads
+🎨 **Tailwind CSS** for beautiful and customizable UI components  
+🖌️ **Shadcn/ui** for sleek UI components  
 📝 **Zod** & **React Hook Form** for schema validation and form handling  
 💨 **Framer Motion** for smooth animations  
 🐻 **Zustand** for state management  
